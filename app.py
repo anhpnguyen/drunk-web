@@ -3,6 +3,8 @@ import requests
 import operator
 import re
 import nltk
+import sys
+import logging
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from stop_words import stops
@@ -11,6 +13,10 @@ from bs4 import BeautifulSoup
 
 
 app = Flask(__name__)
+#logs 
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
+
 # app.config.from_object(os.environ['APP_SETTINGS'])
 app.config.from_object('config.DevelopmentConfig')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
