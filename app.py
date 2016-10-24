@@ -5,6 +5,7 @@ import re
 import nltk
 import sys
 import logging
+nltk.download('punkt')
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from stop_words import stops
